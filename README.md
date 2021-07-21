@@ -10,6 +10,7 @@
   * Explorar estilos disponibilizados pelo ttk
   * Não permitir a inserção de 2 ou mais operadores sem que um operando esteja entre eles
   * Corrigir eventuais bugs
+  * Permitir inserção via teclado
 
 ✅ Sinta-se livre para modificar/colaborar como quiser.
 
