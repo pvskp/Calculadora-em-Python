@@ -5,10 +5,10 @@ LARGURA, ALTURA = 320, 300
 
 BUTTON_WIDTH = 2 # default = 2
 BUTTON_HEIGHT = 2 # default = 2
-BUTTON_DISTANCE = 55 # default = 50
+BUTTON_DISTANCE = 55 # default = 55
 
-DISPLAY_WIDTH = 210 # default = 194
-DISPLAY_HEIGHT = 40 # default = 30
+DISPLAY_WIDTH = 210 # default = 210
+DISPLAY_HEIGHT = 40 # default = 40
 
 SECOND_COLOR = '#b70000'
 
@@ -26,7 +26,7 @@ def operar(event, display, botao):
     global num
     operacao_atual = botao[event.widget]
 
-    vazio = ''
+    vazio = str()
 
     if operacao_atual == 'C':
         num = vazio
@@ -58,7 +58,6 @@ def criar_botoes(window, operacoes, botoes, display):
             contador += 1
             if contador < len(operacoes):
                 b_operacao = Button(window, text=f'{operacoes[contador]}', bg=SECOND_COLOR, width=BUTTON_WIDTH, height=BUTTON_HEIGHT)
-                # b_operacao.grid(column=j, row=i)
                 b_operacao.place(x=j*BUTTON_DISTANCE, y=i*BUTTON_DISTANCE)
                 botoes[b_operacao] = operacoes[contador]
                 b_operacao.bind('<Button-1>', lambda event, d = display, b = botoes: operar(event, d, b))
@@ -99,10 +98,9 @@ def criar_janela():
     """
     janela = Tk()
     janela.title('Calculadora')
-    janela.minsize(LARGURA, ALTURA)
+    janela.minsize(LARGURA, ALTURA) # minsize = maxsize
     janela.maxsize(LARGURA, ALTURA)
 
-    # janela.geometry(f'{LARGURA}x{ALTURA}')
     display = Label(janela, text='', background=SECOND_COLOR, foreground='#fff')
     display.place(x=BUTTON_DISTANCE, y= 10, width=DISPLAY_WIDTH, height=DISPLAY_HEIGHT) 
 
